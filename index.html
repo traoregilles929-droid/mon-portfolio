@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traoré Gilles Hamed Constant – Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F6F7FB; --paper:#fff; --ink:#0F1535; --muted:#5B6280; --line:#DDE1EE;
+  --accent:#2F4BFF; --accent-soft:#E3E8FF;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --text:"Instrument Sans","Segoe UI",system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:var(--text);background:var(--bg);color:var(--ink);line-height:1.65;font-size:1.05rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+/* Navigation */
+header{position:sticky;top:14px;z-index:20;padding:0 14px}
+.bar{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  background:rgba(255,255,255,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid var(--line);border-radius:999px;padding:8px 10px 8px 22px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.1rem;text-decoration:none}
+nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{text-decoration:none;font-size:.95rem;font-weight:500;color:var(--muted);padding:8px 16px;border-radius:999px;white-space:nowrap;transition:background .2s,color .2s}
+nav a:hover{color:var(--ink)}
+nav a.actif{background:var(--ink);color:#fff}
+
+/* Accueil */
+#accueil{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center;padding:90px 0 110px}
+.badge{display:inline-block;background:var(--accent-soft);color:var(--accent);font-weight:600;font-size:.92rem;padding:6px 16px;border-radius:999px;margin-bottom:24px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.5rem,6.2vw,4.8rem);line-height:1.02;letter-spacing:-.035em;margin-bottom:26px}
+.intro{max-width:52ch;color:var(--muted);font-size:1.15rem;margin-bottom:34px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;font-family:var(--text);font-weight:600;font-size:1rem;text-decoration:none;padding:14px 28px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.plein{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.plein:hover{background:var(--ink);border-color:var(--ink)}
+.photo{position:relative;justify-self:center;width:min(100%,330px);aspect-ratio:4/5}
+.photo::before{content:"";position:absolute;inset:18px -18px -18px 18px;background:var(--accent);border-radius:999px 999px 24px 24px}
+.photo .cadre{position:relative;width:100%;height:100%;border-radius:999px 999px 24px 24px;overflow:hidden;background:var(--accent-soft);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:4rem;color:var(--accent)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Sections */
+section.bloc{padding:90px 0;border-top:1px solid var(--line)}
+.deux{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:-.025em;line-height:1.1}
+.texte p{max-width:62ch;margin-bottom:18px}
+.faits{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.faits span{border:1px solid var(--line);background:var(--paper);padding:8px 18px;border-radius:999px;font-weight:500;font-size:.95rem}
+.cadre-apropos{position:relative;width:100%;max-width:320px;margin-top:28px}
+.photo-apropos{display:block;width:100%;border-radius:24px;border:1px solid var(--line);object-fit:cover;aspect-ratio:4/5}
+.badge.sur-photo{position:absolute;top:14px;left:14px;right:14px;margin:0;text-align:center;background:rgba(255,255,255,.92);box-shadow:0 2px 10px rgba(15,21,53,.12)}
+
+/* Projets : grandes lignes */
+.projet{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:28px 0;border-bottom:1px solid var(--line)}
+.projet:first-child{border-top:1px solid var(--line)}
+.projet h3{font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,2.6vw,1.9rem);letter-spacing:-.02em;transition:color .2s}
+.projet span{flex:none;width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font-size:1.2rem;transition:background .2s,color .2s,border-color .2s}
+.projet:hover h3{color:var(--accent)}
+.projet:hover span{background:var(--accent);border-color:var(--accent);color:#fff}
+
+/* Compétences */
+.comp{margin-bottom:22px}
+.comp-t{display:flex;justify-content:space-between;font-weight:600;margin-bottom:8px}
+.comp-t b{color:var(--accent);font-weight:600}
+.piste{height:8px;background:var(--line);border-radius:8px;overflow:hidden}
+.niveau{height:100%;width:0;background:var(--accent);border-radius:8px;transition:width 1.1s cubic-bezier(.2,.7,.2,1)}
+.go .niveau{width:var(--n)}
+
+/* Contact */
+#contact{background:var(--ink);color:#fff;border-radius:36px;margin:0 14px 14px;padding:90px 0}
+#contact h2{color:#fff}
+#contact .sous{color:#B7BCD6;margin-top:16px;max-width:34ch}
+form{display:flex;flex-direction:column;gap:6px}
+.ligne{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{font-weight:500;font-size:.95rem;margin-top:12px;color:#D5D9EC}
+input,textarea{width:100%;padding:14px 16px;font:inherit;color:#fff;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.18);border-radius:14px;transition:border-color .2s,background .2s}
+input::placeholder,textarea::placeholder{color:#8B91B3}
+input:focus,textarea:focus{outline:none;border-color:#fff;background:rgba(255,255,255,.12)}
+textarea{min-height:140px;resize:vertical}
+input.erreur,textarea.erreur{border-color:#FF7A7A;background:rgba(255,122,122,.12)}
+form .btn{align-self:flex-start;margin-top:20px;background:#fff;border-color:#fff;color:var(--ink)}
+form .btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+#retour-form{margin-top:14px;font-weight:600;min-height:1.6em}
+#retour-form.succes{color:#7BE3A3}
+#retour-form.echec{color:#FF9A9A}
+footer{text-align:center;color:var(--muted);font-size:.9rem;padding:34px 0 40px}
+
+/* Mouvement : une seule entrée, au chargement */
+@keyframes entree{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+#accueil>div,.photo{animation:entree .8s cubic-bezier(.2,.7,.2,1) both}
+.photo{animation-delay:.15s}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+
+/* Mobile */
+@media (max-width:820px){
+  #accueil,.deux{grid-template-columns:1fr;gap:40px}
+  #accueil{padding:60px 0 80px}
+  .photo{order:-1;width:min(70%,260px)}
+  .ligne{grid-template-columns:1fr}
+  section.bloc{padding:64px 0}
+  #contact{border-radius:26px;padding:64px 0}
+  .logo{display:none}
+  .bar{padding-left:10px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="logo" href="#accueil">T. G. H. C.</a>
+    <nav>
+      <a href="#accueil">Accueil</a>
+      <a href="#a-propos">À propos</a>
+      <a href="#projets">Projets</a>
+      <a href="#competences">Compétences</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <section id="accueil">
+      <div>
+        <h1>Traoré Gilles Hamed Constant</h1>
+        <p class="intro">Étudiant en licence 3 MIAGE à l’Institut Universitaire d’Abidjan. Je construis des sites web et je m’intéresse à la programmation et aux réseaux.</p>
+        <div class="btns">
+          <a class="btn plein" href="#projets">Voir mes projets</a>
+          <a class="btn" href="#contact">Me contacter</a>
+        </div>
+      </div>
+      <div class="photo">
+        <div class="cadre">
+          TG
+          <!-- Mets ta photo dans le même dossier que ce fichier et nomme-la photo.jpeg -->
+          <img src="c:\Users\Traoré Ahmed\Downloads\WhatsApp Image 2026-11-08 at 22.23.11.jpeg" alt="Photo de Traoré Gilles Hamed Constant" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </section>
+
+    <section class="bloc deux" id="a-propos">
+      <div>
+        <h2>À propos de moi</h2>
+        <!-- Mets ta photo dans le même dossier que ce fichier et nomme-la photo-apropos.jpeg -->
+        <div class="cadre-apropos">
+          <span class="badge sur-photo">Deuxième au hackathon de mon université</span>
+          <img class="photo-apropos" src="c:\Users\Traoré Ahmed\Downloads\WhatsApp Image 2026-11-11 at 11.42.14.jpeg" alt="Photo de Traoré Gilles Hamed Constant">
+        </div>
+      </div>
+      <div class="texte">
+        <p>Je suis un étudiant passionné par l’informatique, très intéressé par la programmation et les réseaux.</p>
+        <p>J’ai participé à un hackathon organisé par mon université avec deux amis. Nous avons fini deuxièmes, et j’étais le leader du groupe. Je suis dynamique, rigoureux et j’aime travailler.</p>
+        <div class="faits">
+          <span>Licence 3 MIAGE</span>
+          <span>Leader d’équipe</span>
+          <span>Programmation</span>
+          <span>Réseaux</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloc deux" id="projets">
+      <h2>Mes projets</h2>
+      <div>
+        <div class="projet"><h3>Site web de gestion touristique</h3><span aria-hidden="true">↗</span></div>
+        <div class="projet"><h3>Site web d’un magasin électronique</h3><span aria-hidden="true">↗</span></div>
+      </div>
+    </section>
+
+    <section class="bloc deux" id="competences">
+      <h2>Mes compétences</h2>
+      <div id="liste-competences"></div>
+    </section>
+  </div>
+
+  <section id="contact">
+    <div class="wrap deux">
+      <div>
+        <h2>Contactez-moi</h2>
+        <p class="sous">Un stage, un projet, une question ? Écrivez-moi.</p>
+      </div>
+      <form id="form-contact" novalidate>
+        <div class="ligne">
+          <div><label for="nom">Nom</label><input type="text" id="nom" name="nom" placeholder="Votre nom"></div>
+          <div><label for="prenom">Prénom</label><input type="text" id="prenom" name="prenom" placeholder="Votre prénom"></div>
+        </div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="vous@exemple.com">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Votre message"></textarea>
+        <button class="btn" type="submit">Envoyer le message</button>
+        <p id="retour-form" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Traoré Gilles Hamed Constant</footer>
+
+<script>
+// 1) Compétences : modifie seulement ce tableau pour changer un niveau ou en ajouter une
+const competences = [
+  { nom: "HTML",   niveau: 80 },
+  { nom: "CSS",    niveau: 60 },
+  { nom: "Python", niveau: 50 },
+  { nom: "SQL",    niveau: 70 },
+  { nom: "PHP",    niveau: 65 }
+];
+
+const liste = document.getElementById("liste-competences");
+liste.innerHTML = competences.map(c => `
+  <div class="comp">
+    <div class="comp-t"><span>${c.nom}</span><b>${c.niveau}%</b></div>
+    <div class="piste"><div class="niveau" style="--n:${c.niveau}%"></div></div>
+  </div>`).join("");
+
+// Les barres se remplissent quand elles apparaissent à l'écran
+new IntersectionObserver((entrees, obs) => {
+  entrees.forEach(e => { if (e.isIntersecting) { liste.classList.add("go"); obs.disconnect(); } });
+}, { threshold: 0.3 }).observe(liste);
+
+// 2) Menu : le lien de la section visible est mis en évidence
+const liens = document.querySelectorAll("nav a");
+const sections = document.querySelectorAll("#accueil, #a-propos, #projets, #competences, #contact");
+const suivi = new IntersectionObserver(entrees => {
+  entrees.forEach(e => {
+    if (e.isIntersecting) {
+      liens.forEach(l => l.classList.toggle("actif", l.getAttribute("href") === "#" + e.target.id));
+    }
+  });
+}, { rootMargin: "-40% 0px -55% 0px" });
+sections.forEach(s => suivi.observe(s));
+
+// 3) Formulaire : vérification avant envoi
+const form = document.getElementById("form-contact");
+const retour = document.getElementById("retour-form");
+const dire = (texte, type) => { retour.textContent = texte; retour.className = type; };
+
+form.addEventListener("submit", e => {
+  e.preventDefault();
+  const champs = ["nom", "prenom", "email", "message"].map(id => document.getElementById(id));
+  champs.forEach(c => c.classList.remove("erreur"));
+
+  const vides = champs.filter(c => c.value.trim() === "");
+  vides.forEach(c => c.classList.add("erreur"));
+  if (vides.length) return dire("Remplissez tous les champs.", "echec");
+
+  const email = document.getElementById("email");
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+    email.classList.add("erreur");
+    return dire("Entrez une adresse email valide.", "echec");
+  }
+
+  dire("Merci " + document.getElementById("prenom").value.trim() + ", votre message est envoyé.", "succes");
+  form.reset();
+});
+
+form.querySelectorAll("input, textarea").forEach(c =>
+  c.addEventListener("input", () => c.classList.remove("erreur")));
+</script>
+</body>
+</html>
